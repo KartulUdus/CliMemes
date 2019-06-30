@@ -225,7 +225,7 @@ module.exports = async () => {
 
     memeLink = memeLink.replace('{TEMPLATE}', app.meme).replace('{TOP}', app.top).replace('{BOTTOM}', app.bottom)
 
-    if (app.save) request(memeLink).pipe(fs.createWriteStream(`${__dirname}/${app.meme}_${app.top}_${app.bottom}.png`))
+    if (app.save) request(memeLink).pipe(fs.createWriteStream(`${process.cwd()}/${app.meme}_${app.top}_${app.bottom}.png`))
     let message = {
         attachments: [{
             fallback: `${app.meme}_${app.top}_${app.bottom}.png`,
