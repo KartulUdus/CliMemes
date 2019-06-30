@@ -1,11 +1,11 @@
 {
   "name": "climemes",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "cli app for webdev masters",
   "main": "app.js",
   "preferGlobal": true,
   "bin": {
-    "climemes": "bin/bin.js"
+    "climemes": "bin/bin"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

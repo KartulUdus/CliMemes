@@ -4,7 +4,7 @@ const app = require('commander')
 const rl = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
-  });
+  })
 
 const hookRegex = new RegExp('(?:(?:https?):\\/\\/|www\\.)(?:\\([-A-Z0-9+&@#\\/%=~_|$?!:,.]*\\)|[-A-Z0-9+&@#\\/%=~_|$?!:,.])*(?:\\([-A-Z0-9+&@#\\/%=~_|$?!:,.]*\\)|[A-Z0-9+&@#\\/%=~_|$])', 'igm')
 
@@ -146,7 +146,7 @@ app
     .option('-w, --webhook [webhook]', 'slack webhook endpoint')
     .option('-s, --save', 'save the meme to memes/ folder')
     .option('-c, --channel [channel]', 'slack channel override')
-    .parse(process.argv);
+    .parse(process.argv)
 
 
 const memeq = async () => {
@@ -213,7 +213,7 @@ const bottomq = async () => {
     })
 }
 
-async function main(){
+module.exports = async () => {
     // check that required args are present
     if(!templates.includes(app.meme)) await memeq()
     if(app.meme === 'custom' && !app.link || app.name === 'custom' && !app.link.match(hookRegex)) await linkq()
@@ -235,12 +235,10 @@ async function main(){
         icon_emoji: ':ghost:',
         username: 'memeBot'
     }
-    if (app.channel.length) message.channel = `#${app.channel}`
+    if (app.channel && app.channel.length) message.channel = `#${app.channel}`
     if (app.webhook && !app.webhook.match(hookRegex)) console.log('slack webhook doesn\'t look like a link')
     if (app.webhook && app.webhook.match(hookRegex)) request.post(app.webhook, {form: JSON.stringify(message)})
-
+    console.log(`url to meme: ${memeLink}`)
     rl.close()
 }
-
-module.exports = main()
 
