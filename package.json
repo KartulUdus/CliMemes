@@ -1,12 +1,18 @@
 {
-  "name": "clitest",
+  "name": "climemes",
   "version": "1.0.0",
   "description": "cli app for webdev masters",
   "main": "app.js",
+  "preferGlobal": true,
+  "bin": { "climemes": "app.js" },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/KartulUdus/CliMemes.git"
+  },
+  "author": "Kartul",
   "license": "ISC",
   "dependencies": {
     "commander": "^2.20.0",

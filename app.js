@@ -235,9 +235,9 @@ async function main(){
         icon_emoji: ':ghost:',
         username: 'memeBot'
     }
+    if (app.channel.length) message.channel = `#${app.channel}`
     if (app.webhook && !app.webhook.match(hookRegex)) console.log('slack webhook doesn\'t look like a link')
     if (app.webhook && app.webhook.match(hookRegex)) request.post(app.webhook, {form: JSON.stringify(message)})
-    console.log(`${__dirname}/${app.meme}_${app.top}_${app.bottom}.png`)
 
     rl.close()
 }
