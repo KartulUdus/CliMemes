@@ -242,5 +242,5 @@ async function main(){
     rl.close()
 }
 
-main()
+module.exports = main()
 
