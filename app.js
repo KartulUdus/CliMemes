@@ -205,7 +205,7 @@ const bottomq = async () => {
         rl.question(`Please provide a bottom caption\n> `, async (answer) => {
             app.bottom = answer
             if(!answer.length) {
-                resolve(await topq())
+                resolve(await bottomq())
             } else {
                 resolve()
             }       

@@ -1,6 +1,6 @@
 {
   "name": "climemes",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "cli app for webdev masters",
   "main": "app.js",
   "preferGlobal": true,
